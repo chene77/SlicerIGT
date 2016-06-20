@@ -25,7 +25,7 @@
      <property name="text" stdset="0">
       <string>Display</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
+     <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
        <widget class="qMRMLNodeComboBox" name="ModuleNodeComboBox" native="true">
         <property name="sizePolicy">
@@ -42,12 +42,14 @@
         <property name="renameEnabled" stdset="0">
          <bool>false</bool>
         </property>
+        <zorder>verticalSpacer</zorder>
+        <zorder>TransformGroupBox</zorder>
        </widget>
       </item>
       <item>
        <widget class="ctkCollapsibleGroupBox" name="FromGroupBox">
         <property name="title">
-         <string>From fiducials</string>
+         <string>US Fiducials</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
@@ -57,15 +59,133 @@
        </widget>
       </item>
       <item>
-       <widget class="ctkCollapsibleGroupBox" name="ToGroupBox">
-        <property name="title">
-         <string>To fiducials</string>
+       <widget class="QGroupBox" name="TransformGroupBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
+        <property name="title">
+         <string>Ultrasound calibration transform</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
-          <widget class="qSlicerSimpleMarkupsWidget" name="ToMarkupsWidget" native="true"/>
+          <widget class="qMRMLNodeComboBox" name="OutputTransformComboBox" native="true">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="nodeTypes" stdset="0">
+            <stringlist>
+             <string>vtkMRMLLinearTransformNode</string>
+             <string>vtkMRMLTransformNode</string>
+            </stringlist>
+           </property>
+           <property name="renameEnabled" stdset="0">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="TransformModeLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Result transform type:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="AnisotropicRadioButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Anisotropic Scales</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="IsottropicRadioButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Isotropic Scale</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="topMargin">
+            <number>10</number>
+           </property>
+           <item>
+            <widget class="ctkMenuButton" name="UpdateButton">
+             <property name="text">
+              <string>Update</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="StatusLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Status:</string>
+           </property>
+          </widget>
          </item>
         </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="ctkCollapsibleGroupBox" name="PreviewGroupBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="title">
+         <string>Preview transform</string>
+        </property>
+        <property name="collapsed" stdset="0">
+         <bool>true</bool>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4"/>
        </widget>
       </item>
      </layout>
@@ -116,6 +236,11 @@
    <extends>QGroupBox</extends>
    <header>ctkCollapsibleGroupBox.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ctkMenuButton</class>
+   <extends>QPushButton</extends>
+   <header>ctkMenuButton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
