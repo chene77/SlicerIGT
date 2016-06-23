@@ -62,20 +62,25 @@ qSlicerGuidedUltrasoundCalibrationModule::~qSlicerGuidedUltrasoundCalibrationMod
 //-----------------------------------------------------------------------------
 QString qSlicerGuidedUltrasoundCalibrationModule::helpText() const
 {
-  return "This is a loadable module that can be bundled in an extension";
+  return "For technical detail, including point-line registration and TRE estimation, please refer to the following paper: <a href='http://link.springer.com/article/10.1007/s11548-016-1390-7'>Guided UltraSound Calibration</a>.";
 }
 
 //-----------------------------------------------------------------------------
 QString qSlicerGuidedUltrasoundCalibrationModule::acknowledgementText() const
 {
-  return "This work was partially funded by NIH grant NXNNXXNNNNNN-NNXN";
+  return "This work was partially funded by Canadian Institutes in Health Research (CIHR, Canada), Ontario Research Foundation (ORF, Canada), Canadian Foundation for Innovation (CFI, Canada), and Natural Sciences and Engineering Research Council, Discovery Grant (NSERC, Canada)";
 }
 
 //-----------------------------------------------------------------------------
 QStringList qSlicerGuidedUltrasoundCalibrationModule::contributors() const
 {
   QStringList moduleContributors;
-  moduleContributors << QString("John Doe (AnyWare Corp.)");
+  
+  moduleContributors << QString("Elvis C.S. Chen (Robarts Research Institute)");
+  moduleContributors << QString("Adam Rankin (Robarts Research Institute)");
+  moduleContributors << QString("Tamas Ungi (Queen's University)");
+  moduleContributors << QString("Inês Parta (Instituto Surperior Técnico)");
+
   return moduleContributors;
 }
 
